@@ -9,4 +9,11 @@ class QwertyTest  extends PHPUnit_Framework_TestCase
 	$qwerty = new Qwerty();
         $this->assertEquals('qwerty', $qwerty->returnQwerty());
     }
+
+    public function testEmpty()
+    {
+        $qwerty = new Qwerty();
+        $this->assertEquals('', $qwerty->returnEmpty());
+    }
+
 }
