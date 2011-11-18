@@ -1,45 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="jenkins_s1" default="build">
- <target name="build" depends="prepare,phpab"/>
+ <target name="build" depends="prepare,phpunit"/>
 
 
- <target name="prepare" depends="clean" description="prepare for build">
+ <target name="prepare" depends="clean,phpab" description="prepare for build">
    <mkdir dir="${basedir}/build/coverage" />
    <mkdir dir="${basedir}/build/logs" />
-<!--
-   <exec executable="mkdir">
-     <arg value="-p" />
-     <arg value="${basedir}/build/coverage" />
-   </exec>
-   <exec executable="mkdir">
-     <arg value="-p" />
-     <arg value="${basedir}/build/logs" />
-   </exec>
--->
    <exec executable="chmod">
      <arg value="-R" />
      <arg value="0777" />
      <arg value="${basedir}/build/coverage" />
      <arg value="${basedir}/build/logs" />
    </exec>
-<!--
-   <exec executable="touch">
-     <arg value="/tmp/abc.abc" />
-   </exec>
--->
  </target>
 
  <target name="clean" description="clean for build">
    <delete dir="${basedir}/build/coverage" />
    <delete dir="${basedir}/build/logs" />
-<!--
-   <exec executable="rm">
-     <arg value="-Rf" />
-     <arg value="${basedir}/build/coverage" />
-     <arg value="${basedir}/build/logs" />
-   </exec>
--->
  </target>
 
 
@@ -60,6 +38,11 @@
    <arg path="${basedir}/tests" />
   </exec>
  </target>
+
+ <target name="phpunit" description="Run tests with PHPUnit">
+   <exec executable="phpunit" failonerror="true" />
+ </target>
+
 
 </project>
 
