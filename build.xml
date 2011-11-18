@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="jenkins_s1" default="build">
- <target name="build" depends="prepare,phpunit"/>
+ <target name="build" depends="prepare,lint,phpunit"/>
 
 
  <target name="prepare" depends="clean,phpab" description="prepare for build">
@@ -41,6 +41,20 @@
 
  <target name="phpunit" description="Run tests with PHPUnit">
    <exec executable="phpunit" failonerror="true" />
+ </target>
+
+ <target name="lint">
+  <apply executable="php" failonerror="true">
+   <arg value="-l" />
+
+   <fileset dir="${basedir}/src">
+    <include name="**/*.php" />
+   </fileset>
+
+   <fileset dir="${basedir}/tests">
+    <include name="**/*.php" />
+   </fileset>
+  </apply>
  </target>
 
 
