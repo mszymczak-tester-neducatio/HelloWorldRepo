@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-  <testsuite name="TestowaSuita" tests="1" assertions="1" failures="0" errors="0" time="0.075974">
-    <testsuite name="QwertyTest" file="/var/www/helloworld/tests/unit/QwertyTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.075974">
-      <testcase name="testQwertyArray" class="QwertyTest" file="/var/www/helloworld/tests/unit/QwertyTest.php" line="7" assertions="1" time="0.075974"/>
-    </testsuite>
-  </testsuite>
-</testsuites>
