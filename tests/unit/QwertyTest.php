@@ -1,9 +1,12 @@
 <?php
 class QwertyTest  extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @covers Qwerty::returnQwerty
+     */
     public function testQwertyArray()
     {
-        $a = array();
-        $this->assertEquals(0, count($a));
+	$qwerty = new Qwerty();
+        $this->assertEquals('qwerty', $qwerty->returnQwerty());
     }
 }
